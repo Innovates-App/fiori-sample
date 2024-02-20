@@ -1,0 +1,51 @@
+<mvc:View xmlns:filterbar="sap.ui.comp.filterbar" controllerName="corsobtp.fioriproject.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content />
+
+         <Table items="{/Books}">
+
+            <headerToolbar>
+                <OverflowToolbar >
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button text="Modifica" press="onEdit" type="Emphasized"></Button>   
+                    <Button text="Salva" press="onSave" type="Transparent" visible="{home>/editMode}" ></Button>     
+                    <Button text="Annulla" press="onCancel" type="Transparent" visible="{home>/editMode}"></Button>
+                </OverflowToolbar>
+            </headerToolbar>
+
+            <columns>
+                <Column >
+                    <Text text="{i18n>bookid}"></Text>
+                </Column>
+                <Column >
+                    <Text text="Totale"></Text>
+                </Column>
+                <Column >
+                    <Text text="Reservation"></Text>
+                </Column>
+                <Column >
+                    <Text text="Available"></Text>
+                </Column>
+                <Column >
+                    <Text text="Action"></Text>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem >
+                    <Text text="{ID}"></Text>
+                    <Text text="{totale}"></Text>
+                    <Input value="{reservation}" editable="{home>/editMode}"></Input>
+                    <Text text="{available}"></Text>
+                    <Button icon="sap-icon://approvals" press="makeReservation"></Button>
+                </ColumnListItem>
+            </items>
+         
+         </Table>
+
+
+
+    </Page>
+</mvc:View>
